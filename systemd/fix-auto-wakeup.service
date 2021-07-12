@@ -1,0 +1,11 @@
+[Unit]
+Description=Fix the auto wakeup problem on suspend
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "echo XHC1 > /proc/acpi/wakeup"
+ExecStop=/bin/sh -c "echo XHC1 > /proc/acpi/wakeup"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

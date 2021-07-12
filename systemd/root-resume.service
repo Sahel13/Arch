@@ -1,0 +1,10 @@
+[Unit]
+Description=Local system resume actions
+After=suspend.target
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c "echo 275 > /sys/class/backlight/intel_backlight/brightness"
+
+[Install]
+WantedBy=suspend.target
