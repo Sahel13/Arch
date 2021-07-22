@@ -5,20 +5,20 @@
 func_install() {
 	if pacman -Qi $1 &> /dev/null; then
 		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
+		echo "###############################################################################"
+		echo "################## The package "$1" is already installed"
+		echo "###############################################################################"
+		echo
 		tput sgr0
 	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1
-    fi
+		tput setaf 3
+		echo "###############################################################################"
+		echo "##################  Installing package "  $1
+		echo "###############################################################################"
+		echo
+		tput sgr0
+		sudo pacman -S --noconfirm --needed $1
+	fi
 }
 
 func_category() {
@@ -221,8 +221,9 @@ echo "################################################################"
 # Get the dofiles
 git clone --bare https://github.com/Sahel13/dotfiles.git ~/.dotfiles
 rm ~/.bashrc
-/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
-/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+$config checkout
+$config config --local status.showUntrackedFiles no
 
 # Systemd services
 sudo rsync -a systemd/ /etc/systemd/system/
@@ -248,3 +249,19 @@ fc-cache -fv
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
+# AUR Packages
+function aur-install () {
+	git clone ${1:?Git clone URL} ${2:?Folder name}
+	cd $2
+	makepkg -si --needed --noconfirm --rmdeps --clean
+	cd ../
+}
+mkdir ~/Public/aur
+cd ~/Public/aur/
+
+aur-install https://aur.archlinux.org/picom-jonaburg-git.git picom
+aur-install https://aur.archlinux.org/mendeleydesktop.git mendeley
+aur-install https://aur.archlinux.org/visual-studio-code-bin.git vscode
+
+cd ~/
