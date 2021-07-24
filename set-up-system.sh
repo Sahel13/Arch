@@ -254,7 +254,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-sy
 function aur-install () {
 	git clone ${1:?Git clone URL} ${2:?Folder name}
 	cd $2
-	makepkg -si --needed --noconfirm --rmdeps --clean
+	makepkg -si --needed --rmdeps --clean
 	cd ../
 }
 mkdir ~/Public/aur
