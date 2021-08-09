@@ -249,19 +249,3 @@ fc-cache -fv
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-
-# AUR Packages
-function aur-install () {
-	git clone ${1:?Git clone URL} ${2:?Folder name}
-	cd $2
-	makepkg -si --needed --rmdeps --clean
-	cd ../
-}
-mkdir ~/Public/aur
-cd ~/Public/aur/
-
-aur-install https://aur.archlinux.org/picom-jonaburg-git.git picom
-aur-install https://aur.archlinux.org/mendeleydesktop.git mendeley
-aur-install https://aur.archlinux.org/visual-studio-code-bin.git vscode
-
-cd ~/
