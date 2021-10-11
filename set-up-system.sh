@@ -70,6 +70,7 @@ done
 func_category "Utilities"
 
 list=(
+# zsh
 zsh
 zsh-completions
 # Neovim plugins
@@ -79,22 +80,19 @@ xclip
 python
 python-pip
 python-pipenv
-# Save git password
+# To save git credentials
 gnome-keyring
 libsecret
-# Task manager
-htop
-# Screenshot
-flameshot
 # CPU
 cpupower
 thermald
-# Firewall
-nftables
 # Others
-tree # For filesystem exploration
-rsync # Copy files fast
 wget
+htop # Task manager
+flameshot # Screenshot tool
+nftables # Firewall
+tree # For filesystem exploration
+rsync # To copy files fast
 pacman-contrib # To run package cache cleaning service
 reflector # Get faster mirrors
 tmux # Terminal multiplexer
@@ -197,6 +195,7 @@ zathura-djvu
 # Latex
 texlive-core
 texlive-latexextra
+texlive-bibtexextra
 texlive-science
 biber
 )
@@ -241,6 +240,7 @@ sudo cp login /etc/pam.d/
 
 # Touchpad preferences
 sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
+sudo cp 10-monitor.conf /etc/X11/xorg.conf.d/
 
 # Refresh font cache
 fc-cache -fv
