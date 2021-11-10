@@ -96,6 +96,7 @@ rsync # To copy files fast
 pacman-contrib # To run package cache cleaning service
 reflector # Get faster mirrors
 tmux # Terminal multiplexer
+nomacs # Image viewer
 )
 
 count=0
@@ -171,7 +172,6 @@ vlc
 discord
 signal-desktop
 telegram-desktop
-anki
 remmina
 freerdp
 )
