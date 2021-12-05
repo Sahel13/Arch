@@ -79,7 +79,6 @@ xclip
 # Python
 python
 python-pip
-python-pipenv
 # To save git credentials
 gnome-keyring
 libsecret
@@ -172,8 +171,6 @@ vlc
 discord
 signal-desktop
 telegram-desktop
-remmina
-freerdp
 )
 
 count=0
@@ -225,12 +222,12 @@ $config checkout
 $config config --local status.showUntrackedFiles no
 
 # Systemd services
-sudo rsync -a systemd/ /etc/systemd/system/
+sudo cp systemd/. /etc/systemd/system/
 sudo systemctl enable --now fix-auto-wakeup.service
 sudo systemctl enable --now root-resume.service
 
 # Pacman hooks
-sudo cp -r pacman /etc/pacman.d/hooks
+sudo cp pacman/. /etc/pacman.d/hooks/
 
 # Keep SSD in good health
 sudo systemctl enable --now fstrim.timer # SSD
