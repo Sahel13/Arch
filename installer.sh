@@ -18,12 +18,7 @@ echo "127.0.1.1 macarch.localdomain macarch" >> /etc/hosts
 # Boot loader
 bootctl --path=/boot install
 echo "default  arch.conf" > /boot/loader/loader.conf
-
-echo "title   Arch Linux" > /boot/loader/entries/arch.conf
-echo "linux   /vmlinuz-linux" >> /boot/loader/entries/arch.conf
-echo "initrd  /intel-ucode.img" >> /boot/loader/entries/arch.conf
-echo "initrd  /initramfs-linux.img" >> /boot/loader/entries/arch.conf
-echo "options root=/dev/sda3 rw systemd.restore_state=0" >> /boot/loader/entries/arch.conf
+cp arch.conf /boot/loader/entries/
 
 # Essential packages
 pacman -S --noconfirm networkmanager tlp
