@@ -222,12 +222,12 @@ $config checkout
 $config config --local status.showUntrackedFiles no
 
 # Systemd services
-sudo cp systemd/. /etc/systemd/system/
+sudo rsync -a systemd/system/ /etc/systemd/system/
 sudo systemctl enable --now fix-auto-wakeup.service
 sudo systemctl enable --now root-resume.service
 
 # Pacman hooks
-sudo cp pacman/. /etc/pacman.d/hooks/
+sudo rsync -a pacman.d/hooks/ /etc/pacman.d/hooks/
 
 # Keep SSD in good health
 sudo systemctl enable --now fstrim.timer # SSD
@@ -235,9 +235,8 @@ sudo systemctl enable --now fstrim.timer # SSD
 # Pam (for gnome-keyring autologin)
 sudo cp login /etc/pam.d/
 
-# Touchpad preferences
-sudo cp 30-touchpad.conf /etc/X11/xorg.conf.d/
-sudo cp 10-monitor.conf /etc/X11/xorg.conf.d/
+# X11 settings (trackpad and monitor)
+sudo rsync -a X11/xorg.conf.d/ /etc/X11/xorg.conf.d/
 
 # Refresh font cache
 fc-cache -fv
