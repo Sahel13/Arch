@@ -1,5 +1,5 @@
 [Unit]
-Description=Fix the auto-wakeup problem on suspend
+Description=Fix the auto-wakeup problem on suspend.
 
 [Service]
 Type=oneshot

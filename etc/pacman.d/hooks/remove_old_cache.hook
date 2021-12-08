@@ -1,3 +1,4 @@
+# https://bbs.archlinux.org/viewtopic.php?pid=1694743#p1694743
 [Trigger]
 Operation = Install
 Operation = Upgrade

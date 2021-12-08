@@ -1,4 +1,5 @@
 #%PAM-1.0
+# gnome-keyring autologin for saving git credentials.
 
 auth       required     pam_securetty.so
 auth       requisite    pam_nologin.so

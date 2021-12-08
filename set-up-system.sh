@@ -96,6 +96,7 @@ pacman-contrib # To run package cache cleaning service
 reflector # Get faster mirrors
 tmux # Terminal multiplexer
 nomacs # Image viewer
+slock # Screen locker
 )
 
 count=0
@@ -221,22 +222,15 @@ config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 $config checkout
 $config config --local status.showUntrackedFiles no
 
-# Systemd services
-sudo rsync -a systemd/system/ /etc/systemd/system/
+# Copy all system files
+sudo rsync -a etc/ /etc/
+
+# Start custom systemd services
 sudo systemctl enable --now fix-auto-wakeup.service
 sudo systemctl enable --now root-resume.service
 
-# Pacman hooks
-sudo rsync -a pacman.d/hooks/ /etc/pacman.d/hooks/
-
 # Keep SSD in good health
 sudo systemctl enable --now fstrim.timer # SSD
-
-# Pam (for gnome-keyring autologin)
-sudo cp login /etc/pam.d/
-
-# X11 settings (trackpad and monitor)
-sudo rsync -a X11/xorg.conf.d/ /etc/X11/xorg.conf.d/
 
 # Refresh font cache
 fc-cache -fv
