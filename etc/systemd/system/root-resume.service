@@ -8,3 +8,4 @@ ExecStart=/bin/sh -c "echo 275 > /sys/class/backlight/intel_backlight/brightness
 
 [Install]
 WantedBy=suspend.target
+

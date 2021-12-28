@@ -29,3 +29,4 @@ $ chsh -s /usr/bin/zsh
 ```
 
 Reboot.
+

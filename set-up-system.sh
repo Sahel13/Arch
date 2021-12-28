@@ -86,17 +86,24 @@ libsecret
 cpupower
 thermald
 # Others
+htop
+openssh
 wget
-htop # Task manager
+rsync
+reflector
 flameshot # Screenshot tool
 nftables # Firewall
 tree # For filesystem exploration
-rsync # To copy files fast
 pacman-contrib # To run package cache cleaning service
-reflector # Get faster mirrors
 tmux # Terminal multiplexer
 nomacs # Image viewer
 slock # Screen locker
+redshift # Night mode
+# For the PC
+# nvidia
+# nvidia-settings
+# cuda
+# cudnn
 )
 
 count=0
@@ -239,3 +246,4 @@ fc-cache -fv
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
