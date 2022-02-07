@@ -23,4 +23,3 @@ cp arch.conf /boot/loader/entries/
 # Essential packages
 pacman -S --noconfirm networkmanager tlp
 systemctl enable NetworkManager tlp
-

@@ -7,4 +7,3 @@ Target = *
 Description = Removing pacman cache...
 When = PostTransaction
 Exec = /usr/bin/paccache -ruk0 
-

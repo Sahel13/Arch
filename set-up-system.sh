@@ -76,6 +76,7 @@ zsh-completions
 # Neovim plugins
 python-pynvim
 xclip
+powerline-fonts
 # Python
 python
 python-pip
@@ -85,6 +86,9 @@ libsecret
 # CPU
 cpupower
 thermald
+# Vim fuzzy file finding
+fzy
+ripgrep
 # Others
 htop
 openssh
@@ -99,6 +103,7 @@ tmux # Terminal multiplexer
 nomacs # Image viewer
 slock # Screen locker
 redshift # Night mode
+archlinux-wallpaper
 # For the PC
 # nvidia
 # nvidia-settings
@@ -246,4 +251,3 @@ fc-cache -fv
 mkdir ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-
