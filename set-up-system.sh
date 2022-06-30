@@ -94,6 +94,7 @@ htop
 openssh
 wget
 rsync
+ntp
 reflector
 flameshot # Screenshot tool
 nftables # Firewall
@@ -240,6 +241,7 @@ sudo rsync -a etc/ /etc/
 # Start custom systemd services
 sudo systemctl enable --now fix-auto-wakeup.service
 sudo systemctl enable --now root-resume.service
+sudo systemctl enable --now slock@sahel.service
 
 # Keep SSD in good health
 sudo systemctl enable --now fstrim.timer # SSD
