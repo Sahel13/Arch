@@ -43,6 +43,7 @@ xf86-video-intel
 xmonad
 xmonad-contrib
 xmobar
+trayer
 # Autostart applications
 feh
 picom
@@ -181,10 +182,8 @@ func_category "Applications"
 
 list=(
 firefox
-vlc
-discord
+vivaldi
 signal-desktop
-telegram-desktop
 )
 
 count=0
