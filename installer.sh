@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Set the time zone
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
 hwclock --systohc
 
 # Localization
-sed -i '177s/.//' /etc/locale.gen
+sed -i '171s/.//' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 

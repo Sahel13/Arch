@@ -106,6 +106,7 @@ nomacs # Image viewer
 slock # Screen locker
 redshift # Night mode
 archlinux-wallpaper
+network-manager-applet
 # For the PC
 # nvidia
 # nvidia-settings
@@ -182,8 +183,11 @@ func_category "Applications"
 
 list=(
 firefox
-vivaldi
 signal-desktop
+discord
+telegram-desktop
+obsidian
+vlc
 )
 
 count=0
