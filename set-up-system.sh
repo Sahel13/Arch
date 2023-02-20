@@ -107,6 +107,8 @@ slock # Screen locker
 redshift # Night mode
 archlinux-wallpaper
 network-manager-applet
+nm-connection-editor # To configure University wifi
+arandr # Easily configure external displays
 # For the PC
 # nvidia
 # nvidia-settings
@@ -184,8 +186,6 @@ func_category "Applications"
 list=(
 firefox
 signal-desktop
-discord
-telegram-desktop
 obsidian
 vlc
 )
