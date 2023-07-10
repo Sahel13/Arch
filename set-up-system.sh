@@ -109,11 +109,11 @@ archlinux-wallpaper
 network-manager-applet
 nm-connection-editor # To configure University wifi
 arandr # Easily configure external displays
-# For the PC
-# nvidia
-# nvidia-settings
-# cuda
-# cudnn
+rclone # To sync files with online drives.
+nvidia
+nvidia-settings
+cuda
+cudnn
 )
 
 count=0
@@ -187,7 +187,6 @@ list=(
 firefox
 signal-desktop
 obsidian
-vlc
 )
 
 count=0
@@ -206,12 +205,6 @@ list=(
 zathura
 zathura-pdf-poppler
 zathura-djvu
-# Latex
-texlive-core
-texlive-latexextra
-texlive-bibtexextra
-texlive-science
-biber
 )
 
 count=0
@@ -242,8 +235,6 @@ $config config --local status.showUntrackedFiles no
 sudo rsync -a etc/ /etc/
 
 # Start custom systemd services
-sudo systemctl enable --now fix-auto-wakeup.service
-sudo systemctl enable --now root-resume.service
 sudo systemctl enable --now slock@sahel.service
 
 # Keep SSD in good health

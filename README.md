@@ -29,3 +29,8 @@ $ chsh -s /usr/bin/zsh
 ```
 
 Reboot.
+
+## Miscellaneous
+
+### Latex
+A native Tex Live installation is recommended now instead of the Arch-packaged one (see the Arch Wiki article on Tex Live).
