@@ -38,7 +38,8 @@ list=(
 xorg
 xorg-xinit
 # Video driver
-xf86-video-intel
+mesa
+xf86-video-amdgpu
 # XMonad
 xmonad
 xmonad-contrib
@@ -47,16 +48,15 @@ trayer
 # Autostart applications
 feh
 picom
-polkit-gnome
+xcape
 dunst
-xfce4-power-manager
 unclutter
 # Others
 dmenu
 alacritty
 # Fonts
 ttf-font-awesome
-ttf-ubuntu-font-family
+ttf-mononoki-nerd
 )
 
 count=0
@@ -81,12 +81,9 @@ powerline-fonts
 # Python
 python
 python-pip
-# To save git credentials
-gnome-keyring
-libsecret
 # CPU
-cpupower
-thermald
+# cpupower
+# thermald
 # Vim fuzzy file finding
 fzy
 ripgrep
@@ -95,25 +92,17 @@ htop
 openssh
 wget
 rsync
-ntp
-reflector
+# reflector
 flameshot # Screenshot tool
 nftables # Firewall
-tree # For filesystem exploration
 pacman-contrib # To run package cache cleaning service
 tmux # Terminal multiplexer
-nomacs # Image viewer
+# nomacs # Image viewer
 slock # Screen locker
-redshift # Night mode
-archlinux-wallpaper
+# redshift # Night mode
 network-manager-applet
 nm-connection-editor # To configure University wifi
-arandr # Easily configure external displays
 rclone # To sync files with online drives.
-nvidia
-nvidia-settings
-cuda
-cudnn
 )
 
 count=0
@@ -123,8 +112,8 @@ for name in "${list[@]}" ; do
 	func_install $name
 done
 
-sudo systemctl enable --now cpupower.service
-sudo systemctl enable --now thermald.service
+# sudo systemctl enable --now cpupower.service
+# sudo systemctl enable --now thermald.service
 sudo systemctl enable --now nftables.service
 
 ###############################################################################
@@ -159,15 +148,15 @@ xdg-user-dirs-update
 func_category "Sound and Bluetooth"
 
 list=(
-alsa-utils
-bluez
-bluez-utils
-pulseaudio
-pulseaudio-alsa
-pulseaudio-bluetooth
-# GUIs 
-pavucontrol
-blueman
+# alsa-utils
+# bluez
+# bluez-utils
+# pulseaudio
+# pulseaudio-alsa
+# pulseaudio-bluetooth
+# # GUIs 
+# pavucontrol
+# blueman
 )
 
 count=0
@@ -177,7 +166,7 @@ for name in "${list[@]}" ; do
 	func_install $name
 done
 
-sudo systemctl enable --now bluetooth.service
+# sudo systemctl enable --now bluetooth.service
 
 ###############################################################################
 
@@ -186,7 +175,7 @@ func_category "Applications"
 list=(
 firefox
 signal-desktop
-obsidian
+# obsidian
 )
 
 count=0
@@ -225,23 +214,20 @@ echo "Software has been installed"
 echo "################################################################"
 
 # Get the dofiles
-git clone --bare https://github.com/Sahel13/dotfiles.git ~/.dotfiles
+git clone --bare git@github.com:Sahel13/dotfiles.git ~/.dotfiles
 rm ~/.bashrc
 config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 $config checkout
 $config config --local status.showUntrackedFiles no
 
 # Copy all system files
-sudo rsync -a etc/ /etc/
+# sudo rsync -a etc/ /etc/
 
 # Start custom systemd services
-sudo systemctl enable --now slock@sahel.service
+# sudo systemctl enable --now slock@sahel.service
 
 # Keep SSD in good health
 sudo systemctl enable --now fstrim.timer # SSD
-
-# Refresh font cache
-fc-cache -fv
 
 # Zsh configuration
 mkdir ~/.zsh
